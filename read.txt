@@ -1,0 +1,39 @@
+npm install -g @vue/cli
+
+터미널에서 vue 명령어 사용하려면 터미널 관리자모드로 실행 후 우측 명령어 실행 : Set-ExecutionPolicy RemoteSigned
+
+cd D:\cjh\workspace\vue
+
+vue create vue-gallery
+
+npm run serve
+
+
+vue 두단어 붙여서 하는 것 안하도록 하는 옵션
+  - package.json : rules 안에 추가 --> "vue/multi-word-component-names": 0
+
+
+port 변경 
+package.json : "serve": "vue-cli-service serve --port 3000",
+
+
+npm install axios
+
+
+cors 세팅
+  - vue.config.js --> 기존꺼 다 지우고 하단내용 넣기
+module.exports = {
+  devServer: {
+      proxy: {
+          '/api': {
+              target: 'http://localhost:8080',
+              changeOrigin: true,
+              pathRewrite: {
+                  '^/': ''
+              }
+          }
+      }
+  }
+}
+
+  
